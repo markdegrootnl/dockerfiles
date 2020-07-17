@@ -17,7 +17,7 @@ docker run -d --name unifi-protect-x86  \
     -p 7442:7442 \
     -v unifi-protect-db:/var/lib/postgresql/10/main \
     -v unifi-protect:/srv/unifi-protect \
-    markdegroot/unifi-protect:latest
+    markdegroot/unifi-protect-x86:latest
 ```
 
 Now you can access UniFi Protect at `https://localhost:7443/`.
