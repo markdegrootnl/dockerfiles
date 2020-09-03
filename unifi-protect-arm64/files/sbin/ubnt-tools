@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ "$1" == "id" ]; then
+
+    if [ ! -f /persistent/uuid.txt ]; then
+        cat /proc/sys/kernel/random/uuid > /persistent/uuid.txt
+    fi
+    uuid=$(cat /persistent/uuid.txt)
+
+    echo "board.sysid=0xe970"
+    echo "board.uuid=$uuid"
+    echo "board.name=UniFi Network Video Recorder"
+    echo "board.shortname=UNVR"
+    echo "board.hwrev=1"
+fi
