@@ -18,7 +18,7 @@ docker run -d --name unifi-protect-arm64  \
     -v protect-persistent:/persistent \
     -v protect-srv:/srv \
     -v protect-data:/data \
-    unifi-protect-arm64
+    markdegroot/unifi-protect-arm64:latest
 ```
 
 Now you can access UniFi Protect at `https://localhost/`.
@@ -26,7 +26,7 @@ Now you can access UniFi Protect at `https://localhost/`.
 ## Build your own container
 To build your own container put the deb files for `ulp-go`, `unifi-core` and `unifi-protect` in the `put-deb-files-here` folder and run:
 ```bash
-docker build -t unifi-protect-arm64 .
+docker build -t markdegroot/unifi-protect-arm64 .
 ```
 
 ## Disclaimer

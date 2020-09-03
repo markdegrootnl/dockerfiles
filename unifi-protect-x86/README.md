@@ -22,6 +22,13 @@ docker run -d --name unifi-protect-x86  \
 
 Now you can access UniFi Protect at `https://localhost:7443/`.
 
+## Build your own container
+To build your own container run:
+```bash
+docker build -t markdegroot/unifi-protect-x86 .
+```
+**Important:** The deb-files required to build this image are no longer hosted by UniFi. You have to find your own version of this file and alter the Dockerfile setup.
+
 ## Disclaimer
 
 This Docker image is not associated with UniFi in any way. We do not distribute any third party software and only use packages that are freely available on the internet.
