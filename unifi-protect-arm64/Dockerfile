@@ -51,6 +51,6 @@ RUN apt-get update \
 
 VOLUME ["/srv", "/data", "/persistent"]
 
-EXPOSE 80/tcp 443/tcp
+EXPOSE 80 443 7080 7443 7444 7877 7442 7446 7550 7447 9812 9444 9080
 
 CMD ["/lib/systemd/systemd"]
