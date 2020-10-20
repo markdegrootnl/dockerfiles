@@ -13,29 +13,19 @@ docker run -d --name unifi-protect-arm64  \
     --tmpfs /run/lock \
     --tmpfs /tmp \
     -v /sys/fs/cgroup:/sys/fs/cgroup:ro \
-    -p 80:80 \
-    -p 443:443 \
-    -p 7080:7080 \
-    -p 7443:7443 \
-    -p 7444:7444 \
-    -p 7877:7877 \
-    -p 7442:7442 \
-    -p 7446:7446 \
-    -p 7550:7550 \
-    -p 7447:7447 \
-    -p 9812:9812 \
-    -p 9444:9444 \
-    -p 9080:9080 \
-    -v protect-persistent:/persistent \
-    -v protect-srv:/srv \
-    -v protect-data:/data \
+    -v /storage/srv:/srv \
+    -v /storage/data:/data \
+    --network host \
     markdegroot/unifi-protect-arm64:latest
 ```
 
 Now you can access UniFi Protect at `https://localhost/`.
 
 ## Storage
-UniFi Protect needs a lot of storage to record video. Protect will fail to start if there is not at least 100GB disk space available, so make sure to store your Docker volumes on a disk with some space.
+UniFi Protect needs a lot of storage to record video. Protect will fail to start if there is not at least 100GB disk space available, so make sure to store your Docker volumes on a disk with some space (`/storage` in the above run command).
+
+## Stuck at "Device Updating"
+If you are stuck at a popup saying "Device Updating" with a blue loading bar after the initial setup, just run `systemctl restart unifi-core` inside the container or restart the entire container. This happens only the first time after the initial setup.
 
 ## Build your own container
 To build your own container put the deb files for `ulp-go`, `unifi-core` and `unifi-protect` in the `put-deb-files-here` folder and run:

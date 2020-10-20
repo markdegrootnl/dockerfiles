@@ -47,10 +47,9 @@ RUN apt-get update \
     && /usr/local/sbin/postgresql.sh \
     && rm /usr/local/sbin/postgresql.sh \
     && echo "exit 0" > /usr/sbin/policy-rc.d \
-    && sed -i "s/Requires=network.target postgresql-cluster@9.6-main.service ulp-go.service/Requires=network.target postgresql-cluster@9.6-main.service/" /lib/systemd/system/unifi-core.service
+    && sed -i "s/Requires=network.target postgresql-cluster@9.6-main.service ulp-go.service/Requires=network.target postgresql-cluster@9.6-main.service/" /lib/systemd/system/unifi-core.service \
+    && sed -i 's/redirectHostname: unifi//' /usr/share/unifi-core/app/config/config.yaml
 
-VOLUME ["/srv", "/data", "/persistent"]
-
-EXPOSE 80 443 7080 7443 7444 7877 7442 7446 7550 7447 9812 9444 9080
+VOLUME ["/srv", "/data"]
 
 CMD ["/lib/systemd/systemd"]
