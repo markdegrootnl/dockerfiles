@@ -22,6 +22,8 @@ docker run -d --name unifi-protect-x86  \
 
 Now you can access UniFi Protect at `https://localhost:7443/`.
 
+It's highly recommended that you set a [memory limit on this container](https://docs.docker.com/config/containers/resource_constraints/#limit-a-containers-access-to-memory), otherwise it will use all of your RAM over time, I'm not sure if this issue is fixed on newer ARM versions.
+
 ## Build your own container
 To build your own container run:
 ```bash
