@@ -22,7 +22,22 @@ docker run -d --name unifi-protect-x86  \
 
 Now you can access UniFi Protect at `https://localhost:7443/`.
 
-It's highly recommended that you set a [memory limit on this container](https://docs.docker.com/config/containers/resource_constraints/#limit-a-containers-access-to-memory), otherwise it will use all of your RAM over time, I'm not sure if this issue is fixed on newer ARM versions.
+It's highly recommended that you set a [memory limit on this container](https://docs.docker.com/config/containers/resource_constraints/#limit-a-containers-access-to-memory), otherwise it will use all of your RAM over time, I'm not sure if this issue is fixed on newer ARM versions. Example below with `-m 2048m` (2Gb memory limit):
+
+```bash
+docker run -d --name unifi-protect-x86  \
+    --tmpfs /srv/unifi-protect/temp \
+    -p 7080:7080 \
+    -p 7443:7443 \
+    -p 7444:7444 \
+    -p 7447:7447 \
+    -p 7550:7550 \
+    -p 7442:7442 \
+    -m 2048m \
+    -v unifi-protect-db:/var/lib/postgresql/10/main \
+    -v unifi-protect:/srv/unifi-protect \
+    markdegroot/unifi-protect-x86:latest
+```
 
 ## Build your own container
 To build your own container run:
