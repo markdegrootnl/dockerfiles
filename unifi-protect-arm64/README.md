@@ -28,11 +28,10 @@ UniFi Protect needs a lot of storage to record video. Protect will fail to start
 If you are stuck at a popup saying "Device Updating" with a blue loading bar after the initial setup, just run `systemctl restart unifi-core` inside the container or restart the entire container. This happens only the first time after the initial setup.
 
 ## Build your own container
-To build your own container put the deb files for `ulp-go`, `unifi-core` and `unifi-protect` in the `put-deb-files-here` folder and run:
+To build your own container put the deb file for `unifi-core` (for unifi-protect 1.17.3 you need unifi-core 1.6.65) in the `put-unifi-core-deb-here` folder and run:
 ```bash
 docker build -t markdegroot/unifi-protect-arm64 .
 ```
 
 ## Disclaimer
-
 This Docker image is not associated with UniFi in any way. We do not distribute any third party software and only use packages that are freely available on the internet.

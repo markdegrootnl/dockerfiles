@@ -38,10 +38,13 @@ RUN apt-get update \
     && sed -i 's/peer/trust/g' /etc/postgresql/9.6/main/pg_hba.conf \
     && rm -rf /var/lib/apt/lists/*
 
-COPY put-deb-files-here/*.deb files/ /
+RUN apt-get update && apt-get install -y dirmngr
 
-RUN apt-get update \
-    && apt-get -y --no-install-recommends install /*.deb \
+COPY put-unifi-core-deb-here/*.deb files/ /
+
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv 379CE192D401AB61 \
+    && apt-get update \
+    && apt-get -y --no-install-recommends install /*.deb unifi-protect \
     && rm -f /*.deb \
     && rm -rf /var/lib/apt/lists/* \
     && /usr/local/sbin/postgresql.sh \

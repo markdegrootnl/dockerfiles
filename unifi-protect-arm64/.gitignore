@@ -1,2 +1,2 @@
-put-deb-files-here/*
-!put-deb-files-here/.gitkeep
+put-unifi-core-deb-here/*
+!put-unifi-core-deb-here/.gitkeep
