@@ -1,6 +1,6 @@
 # htpasswd
 
-Docker image to create `.htpasswd` file.
+Docker image to create a `.htpasswd` file.
 
 ## Usage
 
@@ -10,12 +10,12 @@ Run the container:
 docker run -it --rm \
     -e USERNAME=... \
     -e PASSWORD=... \
-    markdegroot/htpassword
+    markdegroot/htpasswd
 ```
 
 or using a `.env` file:
 ```bash
 docker run -it --rm \
     --env-file .env \
-    markdegroot/htpassword
+    markdegroot/htpasswd
 ```
