@@ -11,6 +11,7 @@
 - [dubuntu](./dubuntu) Simple Dockerfile to spin up a Ubuntu container with some packages installed.
 - [nmbd](./nmbd) Run Samba's NMBD inside docker to respond to NETBIOS queries.
 - [htpasswd](./htpasswd) Docker image to create a `.htpasswd` file.
+- [expose-docker](./expose-docker) Fixes a bug in https://github.com/backdevs/expose-docker.
 
 ## License
 
