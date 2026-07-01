@@ -43,6 +43,6 @@ backups:
   sleepSeconds: ${SLEEP_SECONDS:-10}
 EOT
 
-echo "0 ${RUN_AT_MINUTE:-0} ${RUN_AT_HOUR:-0} ${RUN_AT_DAY:-*} * * * node /app create" > /app/crontab
+echo "${CRON_EXPR:-0 0 0 0 * * *} node /app create" > /app/crontab
 
 exec "$@"

@@ -20,9 +20,7 @@ The backup tool can be configured using env variables:
 | MAX_SIZE_SHRINK_PERCENT        | 10            | For status checks: how much smaller may the newest backup be than the previous one? (%)                             |
 | MAX_WAIT_MINUTES               | 120           | How long do we allow the Atlassian cloud to take when creating backups? (min) Raise this if you have big instances! |
 | SLEEP_SECONDS                  | 10            | What is the interval in seconds between checks at the Atlassian cloud if the backup is done? (sec)                  |
-| RUN_AT_HOUR                    | 0             | At what hour should the backups run. Uses CRON expression                                                           |
-| RUN_AT_MINUTE                  | 0             | At what minute should the backups run. Uses CRON expression                                                         |
-| RUN_AT_DAY                     | *             | At what day should the backups run. Uses CRON expression                                                            |
+| CRON_EXPR                      | 0 0 0 0 * * * | At what time should the backups run. Uses CRON expression                                                           |
 
 ## More information
 For more information, see https://bitbucket.org/addcraftio/atlascloud-backup
